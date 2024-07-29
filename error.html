@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang=en>
+
+<head>
+    <title>requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+        // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon" href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+        var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "AQ6H3rvz2QCBwYs82kVK";
+    </script>
+</head>
+
+<body style="background-color: #fff">
+    <div class="debugger">
+        <h1>JSONDecodeError</h1>
+        <div class="detail">
+            <p class="errormsg">requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+            </p>
+        </div>
+        <h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+        <div class="traceback">
+            <h3></h3>
+            <ul>
+                <li>
+                    <div class="frame" id="frame-1736141855408">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py"</cite>,
+                            line <em class="line">974</em>,
+                            in <code class="function">json</code></h4>
+                        <div class="source library">
+                            <pre class="line before"><span class="ws">                    </span>pass</pre>
+                            <pre
+                                class="line before"><span class="ws">                </span>except JSONDecodeError as e:</pre>
+                            <pre
+                                class="line before"><span class="ws">                    </span>raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)</pre>
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre class="line before"><span class="ws">        </span>try:</pre>
+                            <pre class="line current"><span class="ws">            </span>return complexjson.loads(self.text, **kwargs)
+<span class="ws">            </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+                            <pre class="line after"><span class="ws">        </span>except JSONDecodeError as e:</pre>
+                            <pre
+                                class="line after"><span class="ws">            </span># Catch JSON-related errors and raise as requests.JSONDecodeError</pre>
+                            <pre
+                                class="line after"><span class="ws">            </span># This aliases json.JSONDecodeError and simplejson.JSONDecodeError</pre>
+                            <pre
+                                class="line after"><span class="ws">            </span>raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141855552">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py"</cite>,
+                            line <em class="line">346</em>,
+                            in <code class="function">loads</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">        </span>s = s.decode(detect_encoding(s), &#39;surrogatepass&#39;)</pre>
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre
+                                class="line before"><span class="ws">    </span>if (cls is None and object_hook is None and</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>parse_int is None and parse_float is None and</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>parse_constant is None and object_pairs_hook is None and not kw):</pre>
+                            <pre class="line current"><span class="ws">        </span>return _default_decoder.decode(s)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+                            <pre class="line after"><span class="ws">    </span>if cls is None:</pre>
+                            <pre class="line after"><span class="ws">        </span>cls = JSONDecoder</pre>
+                            <pre class="line after"><span class="ws">    </span>if object_hook is not None:</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>kw[&#39;object_hook&#39;] = object_hook</pre>
+                            <pre class="line after"><span class="ws">    </span>if object_pairs_hook is not None:</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141855696">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py"</cite>,
+                            line <em class="line">337</em>,
+                            in <code class="function">decode</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">    </span>def decode(self, s, _w=WHITESPACE.match):</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>&#34;&#34;&#34;Return the Python representation of ``s`` (a ``str`` instance</pre>
+                            <pre class="line before"><span class="ws">        </span>containing a JSON document).</pre>
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+                            <pre class="line current"><span class="ws">        </span>obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+<span class="ws">        </span>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+                            <pre class="line after"><span class="ws">        </span>end = _w(s, end).end()</pre>
+                            <pre class="line after"><span class="ws">        </span>if end != len(s):</pre>
+                            <pre
+                                class="line after"><span class="ws">            </span>raise JSONDecodeError(&#34;Extra data&#34;, s, end)</pre>
+                            <pre class="line after"><span class="ws">        </span>return obj</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141855840">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py"</cite>,
+                            line <em class="line">355</em>,
+                            in <code class="function">raw_decode</code></h4>
+                        <div class="source library">
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+                            <pre class="line before"><span class="ws">        </span>try:</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>obj, end = self.scan_once(s, idx)</pre>
+                            <pre class="line before"><span class="ws">        </span>except StopIteration as err:</pre>
+                            <pre class="line current"><span class="ws">            </span>raise JSONDecodeError(&#34;Expecting value&#34;, s, err.value) from None
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+                            <pre class="line after"><span class="ws">        </span>return obj, end</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="exc-divider">During handling of the above exception, another exception occurred:</div>
+                <li>
+                    <div class="frame" id="frame-1736141854112">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py"</cite>,
+                            line <em class="line">1498</em>,
+                            in <code class="function">__call__</code></h4>
+                        <div class="source library">
+                            <pre class="line before"><span class="ws">    </span>) -&gt; cabc.Iterable[bytes]:</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+                            <pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+                            <pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+                            <pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141853968">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py"</cite>,
+                            line <em class="line">1476</em>,
+                            in <code class="function">wsgi_app</code></h4>
+                        <div class="source library">
+                            <pre class="line before"><span class="ws">            </span>try:</pre>
+                            <pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+                            <pre
+                                class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+                            <pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+                            <pre class="line before"><span class="ws">                </span>error = e</pre>
+                            <pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)
+<span class="ws">                </span>           ^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+                            <pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+                            <pre class="line after"><span class="ws">                </span>raise</pre>
+                            <pre
+                                class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+                            <pre class="line after"><span class="ws">        </span>finally:</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141854256">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py"</cite>,
+                            line <em class="line">178</em>,
+                            in <code class="function">wrapped_function</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span># These error handlers will still respect the behavior of the route</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>if options.get(&#39;intercept_exceptions&#39;, True):</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>def _after_request_decorator(f):</pre>
+                            <pre
+                                class="line before"><span class="ws">                </span>def wrapped_function(*args, **kwargs):</pre>
+                            <pre class="line current"><span class="ws">                    </span>return cors_after_request(app.make_response(f(*args, **kwargs)))
+<span class="ws">                    </span>                                            ^^^^^^^^^^^^^^^^^^</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>return wrapped_function</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre
+                                class="line after"><span class="ws">            </span>if hasattr(app, &#39;handle_exception&#39;):</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>app.handle_exception = _after_request_decorator(</pre>
+                            <pre
+                                class="line after"><span class="ws">                    </span>app.handle_exception)</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141854400">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py"</cite>,
+                            line <em class="line">1473</em>,
+                            in <code class="function">wsgi_app</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
+                            <pre class="line before"><span class="ws">        </span>try:</pre>
+                            <pre class="line before"><span class="ws">            </span>try:</pre>
+                            <pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+                            <pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()
+<span class="ws">                </span>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+                            <pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+                            <pre class="line after"><span class="ws">                </span>error = e</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+                            <pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141854544">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py"</cite>,
+                            line <em class="line">882</em>,
+                            in <code class="function">full_dispatch_request</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+                            <pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+                            <pre
+                                class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+                            <pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+                            <pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)
+<span class="ws">            </span>     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+                            <pre class="line after"><span class="ws">        </span>self,</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141854688">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py"</cite>,
+                            line <em class="line">178</em>,
+                            in <code class="function">wrapped_function</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span># These error handlers will still respect the behavior of the route</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>if options.get(&#39;intercept_exceptions&#39;, True):</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>def _after_request_decorator(f):</pre>
+                            <pre
+                                class="line before"><span class="ws">                </span>def wrapped_function(*args, **kwargs):</pre>
+                            <pre class="line current"><span class="ws">                    </span>return cors_after_request(app.make_response(f(*args, **kwargs)))
+<span class="ws">                    </span>                                            ^^^^^^^^^^^^^^^^^^</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>return wrapped_function</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre
+                                class="line after"><span class="ws">            </span>if hasattr(app, &#39;handle_exception&#39;):</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>app.handle_exception = _after_request_decorator(</pre>
+                            <pre
+                                class="line after"><span class="ws">                    </span>app.handle_exception)</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141854832">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py"</cite>,
+                            line <em class="line">880</em>,
+                            in <code class="function">full_dispatch_request</code></h4>
+                        <div class="source library">
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre class="line before"><span class="ws">        </span>try:</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+                            <pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+                            <pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()
+<span class="ws">                </span>     ^^^^^^^^^^^^^^^^^^^^^^^</pre>
+                            <pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+                            <pre
+                                class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141854976">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py"</cite>,
+                            line <em class="line">865</em>,
+                            in <code class="function">dispatch_request</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+                            <pre class="line before"><span class="ws">        </span>):</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+                            <pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre
+                                class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+                            <pre class="line after"><span class="ws">        </span>error handling.</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141855120">
+                        <h4>File <cite class="filename">"C:\Users\risan\Desktop\@PLN-Smartpy\app.py"</cite>,
+                            line <em class="line">36</em>,
+                            in <code class="function">make_payment</code></h4>
+                        <div class="source ">
+                            <pre class="line before"><span class="ws">    </span>)</pre>
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre class="line before"><span class="ws">    </span>if response.status_code == 200:</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>return jsonify({&#34;success&#34;: True, &#34;message&#34;: &#34;Payment successful&#34;})</pre>
+                            <pre class="line before"><span class="ws">    </span>else:</pre>
+                            <pre class="line current"><span class="ws">        </span>return jsonify({&#34;error&#34;: response.json()}), response.status_code
+<span class="ws">        </span>                         ^^^^^^^^^^^^^^^</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre class="line after"><span class="ws"></span>if __name__ == &#39;__main__&#39;:</pre>
+                            <pre class="line after"><span class="ws">    </span>app.run(debug=True)</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-1736141855264">
+                        <h4>File
+                            <cite class="filename">"C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py"</cite>,
+                            line <em class="line">978</em>,
+                            in <code class="function">json</code></h4>
+                        <div class="source library">
+                            <pre class="line before"><span class="ws">        </span>try:</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>return complexjson.loads(self.text, **kwargs)</pre>
+                            <pre class="line before"><span class="ws">        </span>except JSONDecodeError as e:</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span># Catch JSON-related errors and raise as requests.JSONDecodeError</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span># This aliases json.JSONDecodeError and simplejson.JSONDecodeError</pre>
+                            <pre class="line current"><span class="ws">            </span>raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre class="line after"><span class="ws">    </span>@property</pre>
+                            <pre class="line after"><span class="ws">    </span>def links(self):</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>&#34;&#34;&#34;Returns the parsed header links of the response, if any.&#34;&#34;&#34;</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                        </div>
+                    </div>
+            </ul>
+            <blockquote>requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+            </blockquote>
+        </div>
+
+        <div class="plain">
+            <p>
+                This is the Copy/Paste friendly version of the traceback.
+            </p>
+            <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py&#34;, line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py&#34;, line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py&#34;, line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py&#34;, line 355, in raw_decode
+    raise JSONDecodeError(&#34;Expecting value&#34;, s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py&#34;, line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py&#34;, line 1476, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py&#34;, line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py&#34;, line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py&#34;, line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py&#34;, line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py&#34;, line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py&#34;, line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\Desktop\@PLN-Smartpy\app.py&#34;, line 36, in make_payment
+    return jsonify({&#34;error&#34;: response.json()}), response.status_code
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py&#34;, line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+</textarea>
+        </div>
+        <div class="explanation">
+            The debugger caught an exception in your WSGI application. You can now
+            look at the traceback which led to the error. <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+        </div>
+        <div class="footer">
+            Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+            friendly Werkzeug powered traceback interpreter.
+        </div>
+    </div>
+
+    <div class="pin-prompt">
+        <div class="inner">
+            <h3>Console Locked</h3>
+            <p>
+                The console is locked and needs to be unlocked by entering the PIN.
+                You can find the PIN printed out on the standard output of your
+                shell that runs the server.
+            <form>
+                <p>PIN:
+                    <input type=text name=pin size=14>
+                    <input type=submit name=btn value="Confirm Pin">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1476, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\Desktop\@PLN-Smartpy\app.py", line 36, in make_payment
+    return jsonify({"error": response.json()}), response.status_code
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\risan\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\models.py", line 978, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+-->

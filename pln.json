@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "939a3b17-d2b7-45ad-ba66-5cf3bda5153c",
+		"name": "BILLER PLN PREPAID",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://sandbox-api.espay.id/rest/biller/inquirytransaction",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "espay-test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rq_uuid",
+							"value": "SANDBOXINQUIRYBILLER010105",
+							"type": "text"
+						},
+						{
+							"key": "rq_datetime",
+							"value": "2019-10-10 11:01:30",
+							"type": "text"
+						},
+						{
+							"key": "sender_id",
+							"value": "SANDBOX",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "order_id",
+							"value": "520520795556",
+							"type": "text"
+						},
+						{
+							"key": "product_code",
+							"value": "SLYLPR100",
+							"type": "text"
+						},
+						{
+							"key": "signature",
+							"value": "9d6eede295d8865adc9eefa3fc48c059d22773338b01284eb42ab688671a7c9c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sandbox-api.espay.id/rest/biller/inquirytransaction",
+					"protocol": "https",
+					"host": [
+						"sandbox-api",
+						"espay",
+						"id"
+					],
+					"path": [
+						"rest",
+						"biller",
+						"inquirytransaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://sandbox-api.espay.id/rest/biller/paymentreport",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "espay-test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rq_uuid",
+							"value": "SANDBOXPAYMENTBILLERPULSAPOSTPAID010107",
+							"type": "text"
+						},
+						{
+							"key": "rq_datetime",
+							"value": "2019-10-10 11:02:30",
+							"type": "text"
+						},
+						{
+							"key": "sender_id",
+							"value": "SANDBOX",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "order_id",
+							"value": "520520795556",
+							"type": "text"
+						},
+						{
+							"key": "product_code",
+							"value": "SLYLPR100",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "10000000",
+							"type": "text"
+						},
+						{
+							"key": "signature",
+							"value": "f46a2c34884c3d9194140f5ab595cae393749a0c5c25f23d2ebcfec3865196d1",
+							"type": "text"
+						},
+						{
+							"key": "data",
+							"value": "{\n        \"customer_id\": \"520520795556\",\n        \"customer_name\": \"Sam Lucas\",\n        \"meter_serial\": \"10077764594\",\n        \"class\": \"R1  /000001300\",\n        \"token_unsold1\": \"92784001488355688464\",\n        \"token_unsold2\": \"14883592784084640568\",\n        \"reff_no\": \"\",\n        \"price\": \"100000\",\n        \"admin_fee\": \"0\"\n    }",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sandbox-api.espay.id/rest/biller/paymentreport",
+					"protocol": "https",
+					"host": [
+						"sandbox-api",
+						"espay",
+						"id"
+					],
+					"path": [
+						"rest",
+						"biller",
+						"paymentreport"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
